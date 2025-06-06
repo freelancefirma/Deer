@@ -1,4 +1,3 @@
-@media (max-width: 768px) {
     @font-face {
         font-family: 'Entropia';
         src: url('/static/app/fonts/entropia-light.woff2') format('woff2'),
@@ -7,6 +6,7 @@
         font-style: normal;
     }
 
+@media (max-width: 768px) {
     /* .............................................................................. */
     .decor_section {
         position: absolute;
