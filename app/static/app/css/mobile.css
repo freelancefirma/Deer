@@ -1,4 +1,11 @@
 @media (max-width: 768px) {
+    @font-face {
+        font-family: 'Entropia';
+        src: url('/static/app/fonts/entropia-light.woff2') format('woff2'),
+            url('/static/app/fonts/entropia-light.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
 
     /* .............................................................................. */
     .decor_section {
@@ -391,7 +398,7 @@
         box-sizing: border-box;
         width: 34vw;
         height: 22.5vw;
-        font-size:3.5vw;
+        font-size: 3.5vw;
         font-family: 'Entropia', sans-serif;
         color: #006d77a0;
         text-align: left;
@@ -421,25 +428,25 @@
         color: #006d77a0;
     }
 
-    .correct_email{
-    display: none;
-    font-size: 3.56vw;
-    justify-self: center;
-    color: #e97a7a;
-    filter: blur(0.3vw);
-    transform: translateY(-5vw);
-    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
+    .correct_email {
+        display: none;
+        font-size: 3.56vw;
+        justify-self: center;
+        color: #e97a7a;
+        filter: blur(0.3vw);
+        transform: translateY(-5vw);
+        transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1), filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
 
-.success_email{
-    display: none;
-    font-size: 3.56vw;
-    justify-self: center;
-    color: #006d77a0;
-    filter: blur(0.3vw);
-    transform: translateY(-5vw);
-    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
+    .success_email {
+        display: none;
+        font-size: 3.56vw;
+        justify-self: center;
+        color: #006d77a0;
+        filter: blur(0.3vw);
+        transform: translateY(-5vw);
+        transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1), filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
 
     .contact_input {
         display: grid;
