@@ -5,7 +5,7 @@
         position: absolute;
         display: grid;
         width: 100vw;
-        height:530vw;
+        height: 530vw;
         background-color: #00ffff00;
         overflow: hidden;
     }
@@ -42,7 +42,7 @@
         justify-self: end;
     }
 
-    
+
     .hero_section {
         display: grid;
         opacity: 1;
@@ -287,14 +287,14 @@
         display: grid;
         background-color: rgba(0, 255, 255, 0);
         width: 100vw;
-        height: 105vw;
+        height: 130vw;
     }
 
     .contact_wrapper {
         display: grid;
         background-color: rgba(225, 255, 0, 0);
         width: 100vw;
-        height: 90vw;
+        height: 115vw;
         perspective: 6vw;
         overflow: hidden;
     }
@@ -331,28 +331,85 @@
 
     .footer_birds {
         position: absolute;
-        width: 16vw;
+        width: 20vw;
         justify-self: center;
-        margin-top: 53vw;
+        margin-top: 45vw;
         margin-left: 70vw;
     }
 
     .contact_description {
-        width: 54vw;
+        width: 56vw;
         height: 26vw;
         margin-top: 10vw;
         font-size: 4.5vw;
         text-align: center;
         justify-self: center;
         border-radius: 1vw;
-        outline: 0.4vw dashed #83C5BE;
-        outline-offset: 1.4vw;
+        /* outline: 0.4vw dashed #83C5BE;
+        outline-offset: 1.4vw; */
         background-color: #e9947a00;
+    }
+
+    .contact_form_wrapper {
+        width: 56.5vw;
+        transform: translateY(-3vw);
+        justify-self: center;
+        background-color: rgba(0, 255, 255, 0);
+    }
+
+    .massage_wrapper {
+        display: grid;
+        gap: 1vw;
+        height: 28vw;
+        overflow: hidden;
+        background-color: hsla(14, 72%, 70%, 0);
+        transform: translateY(2.8vw);
+    }
+
+    .send_massage {
+        font-size: 3.56vw;
+        justify-self: center;
+        color: #006d77a0;
+        transform: translateY(0vw);
+    }
+
+    /* .massage_input {
+        width: auto;
+        height: aito;
+        font-size: 2vw;
+        justify-self: center;
+        border-radius: 2vw;
+        background-color: hsla(14, 72%, 70%, 0.6);
+        perspective: 6vw;
+    } */
+
+    .massage_text {
+        all: unset;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        box-sizing: border-box;
+        width: 34vw;
+        height: 22.5vw;
+        font-size:3.5vw;
+        font-family: 'Entropia', sans-serif;
+        color: #006d77a0;
+        text-align: left;
+        padding-top: 0vw;
+        border-radius: 2vw;
+        border: #006d7734 solid 0.1vw;
+        padding: 1vw;
+        /* outline: 0.2vw dashed #83C5BE; */
+        /* outline-offset: 0vw; */
+        background-color: #83c5bf5a;
+        resize: none;
+        overflow-y: auto;
+        perspective: 6vw;
     }
 
     .subscribe_wrapper {
         display: grid;
-        height: 14vw;
+        height: 13vw;
         overflow: hidden;
         background-color: #e9947a00;
         transform: translateY(2.8vw);
@@ -364,12 +421,32 @@
         color: #006d77a0;
     }
 
+    .correct_email{
+    display: none;
+    font-size: 3.56vw;
+    justify-self: center;
+    color: #e97a7a;
+    filter: blur(0.3vw);
+    transform: translateY(-5vw);
+    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.success_email{
+    display: none;
+    font-size: 3.56vw;
+    justify-self: center;
+    color: #006d77a0;
+    filter: blur(0.3vw);
+    transform: translateY(-5vw);
+    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
     .contact_input {
         display: grid;
         place-content: center;
         width: auto;
-        height: auto;
-        border-radius: 2vw;
+        height: 7vw;
+        border-radius: 4vw;
         border: #006d7734 solid 0.2vw;
         background-color: #83c5bf5a;
         justify-self: center;
@@ -379,11 +456,11 @@
 
     .contact_input input {
         width: 34vw;
-        height: 6vw;
+        height: 7vw;
         font-family: 'Entropia', sans-serif;
         color: #006d77a0;
-        padding-left: 1vw;
-        font-size: 6.5vw;
+        padding-left: 2vw;
+        font-size: 6vw;
         border: none;
         background: none;
         justify-self: center;
@@ -401,10 +478,10 @@
         height: 10vw;
         justify-self: center;
         place-items: center;
-        border-radius: 2vw;
+        border-radius: 6vw;
         overflow: hidden;
-        transform: scale(0.8);
-        background-color: #e9947a00
+        transform: scale(0.7) translateY(2vw);
+        background-color: hsla(14, 72%, 70%, 0)
     }
 
     .button {
@@ -418,14 +495,14 @@
         background-color: #83c5c0;
         justify-self: center;
         cursor: pointer;
-        filter: blur(0.3vw);
-        transform: translateY(-20vw);
+        filter: blur(0vw);
         overflow: hidden;
         transition: transform 1s cubic-bezier(.99, -0.01, 0, 1.08), filter 1.4s cubic-bezier(.99, -0.01, 0, 1.08);
     }
 
     .subscribe_text_button {
         position: absolute;
+        align-self: center;
         transform: translate(0vw);
         transition: filter 0.1s cubic-bezier(.72, -0.02, 0, .99),
             transform 0.3s cubic-bezier(.72, -0.02, 0, .99);

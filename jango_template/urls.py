@@ -13,9 +13,9 @@ urlpatterns = [
     path('app/', include('app.urls')),  # app без префикса языка
 ]
 
-urlpatterns += i18n_patterns(
-    path('', include('cms.urls')),  # cms с языковым префиксом, например /en/
-)
+urlpatterns += [
+    path('', include('cms.urls')),
+]
 
 
 

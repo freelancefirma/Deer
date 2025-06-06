@@ -1,3 +1,7 @@
+
+
+
+
 console.log("DOM ready?", document.readyState);
 console.log("Hero element:", document.querySelector(".hero_section"));
 
@@ -221,24 +225,55 @@ mm.add(
     const text = `Hi, I’m John — a designer, dreamer, and storyteller from the heart of the woods. Rooted in nature and inspired by quiet moments, I create websites that feel like home — warm, authentic, and thoughtfully crafted. Whether it’s a cozy online shop, a rustic portfolio, or a brand that wants to speak softly but clearly — I’m here to help bring it to life.`;
     const container = document.getElementById("flyText");
 
-    text.split("").forEach((char, i) => {
-      const span = document.createElement("span");
-      span.textContent = char;
-      span.classList.add("flychar");
-      container.appendChild(span);
+    // Для хранения анимаций и ScrollTrigger
+    let animations = [];
 
-      gsap.to(span, {
-        x: gsap.utils.random(-150, 150),
-        y: gsap.utils.random(-300, 300),
-        rotate: gsap.utils.random(-180, 180),
-        opacity: 0,
-        scrollTrigger: {
-          trigger: ".about_section",
-          start:isDesktop ? "top -40%" : "top -20%",
-          end: "bottom bottom",
-          scrub: 5,
-        },
+    function initAnimation(isDesktop) {
+      // Очистка контейнера и анимаций
+      animations.forEach(({ animation, trigger }) => {
+        animation.kill();
+        trigger.kill();
       });
+      animations = [];
+      container.innerHTML = "";
+
+      text.split("").forEach((char) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.classList.add("flychar");
+        container.appendChild(span);
+
+        const anim = gsap.to(span, {
+          x: gsap.utils.random(-150, 150),
+          y: gsap.utils.random(-300, 300),
+          rotate: gsap.utils.random(-180, 180),
+          opacity: 0,
+          duration: 2,
+          ease: isDesktop ? "none" : "superEase",
+          scrollTrigger: {
+            trigger: ".about_section",
+            start: isDesktop ? "top -40%" : "top -20%",
+            end: "bottom bottom",
+            scrub: isDesktop ? 5 : false,
+            toggleActions: isDesktop ? undefined : "play none play reverse",
+          },
+        });
+
+        animations.push({ animation: anim, trigger: anim.scrollTrigger });
+      });
+    }
+
+    // Проверка мобильного/десктопного
+
+    initAnimation(isDesktop);
+
+    // Если нужно слушать ресайз и обновлять
+    window.addEventListener("resize", () => {
+      const newIsDesktop = window.innerWidth > 768;
+      if (newIsDesktop !== isDesktop) {
+        // обновляем анимацию с новым условием
+        initAnimation(newIsDesktop);
+      }
     });
 
     //Leaf fly on scroll......................................................................................
@@ -253,6 +288,7 @@ mm.add(
           start: "top top",
           end: "bottom bottom",
           scrub: 5,
+          
         },
       });
     }
@@ -382,7 +418,9 @@ mm.add(
       scrollTrigger: {
         trigger: ".grid",
         start: "top 80%",
+        end: isDesktop ? "bottom 30%" : undefined,
         toggleActions: "play reverse play reverse",
+        markers: false,
       },
       opacity: 0,
       y: 30,
@@ -425,8 +463,8 @@ mm.add(
               x: xOffset,
               zIndex: 10,
               boxShadow: "0 5px 10px rgba(0, 0, 0, 0.4)",
-              duration: 0.5,
-              ease: "myCubic",
+              duration: 0.3,
+              ease: "superEase",
             });
             items.forEach((other) => {
               if (other !== item) {
@@ -760,6 +798,35 @@ mm.add(
       },
     });
 
+    gsap.from(".send_massage", {
+      y: -100,
+      opacity: 0,
+      filter: "blur(0.3vw)",
+      delay: 1,
+      duration: 1.2,
+      ease: "myCubic",
+      scrollTrigger: {
+        trigger: ".footer_section",
+        start: "top 60%",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
+    gsap.from(".massage_input", {
+      opacity: 0,
+      rotateX: 67,
+      rotateY: 0,
+      filter: "blur(3px)",
+      delay: 1,
+      duration: 2.5,
+      ease: "superEase2",
+      scrollTrigger: {
+        trigger: ".footer_section",
+        start: "top 70%",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
     gsap.from(".subscribe", {
       y: -100,
       opacity: 0,
@@ -789,68 +856,139 @@ mm.add(
       },
     });
 
-    //Input effect...............................................................................................
-    const input_email = $(".input_email");
-    const email_button = $(".button");
-    const baseVW = isDesktop ? 15 : 34; // стартовая ширина
-    const perCharVW = isDesktop ? 0.7 : 1.4; // сколько vw на каждый символ после 16-го
-    const maxVW = isDesktop ? 23 : 54; // максимум ширины
-    const thresholdChars = 16; // после какого количества символов начинает расти
-
-    input_email.on("input", function () {
-      const email = input_email.val();
-      const charCount = email.length;
-      let newVW = baseVW;
-
-      if (charCount > thresholdChars) {
-        newVW += (charCount - thresholdChars) * perCharVW;
-      }
-      if (newVW > maxVW) newVW = maxVW;
-
-      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
-
-      input_email.css("width", `${newVW}vw`);
-      if (isValid) {
-        $(".button_wrapper").css("display", "grid");
-        setTimeout(() => {
-          email_button.css({
-            transform: "translateY(0)",
-            filter: "blur(0vw)",
-          });
-        }, 10);
-      } else {
-        $(".button_wrapper").css("display", "none");
-        email_button.css({
-          transform: isDesktop ? "translateY(-5vw)" : "translateY(-15vw)",
-          filter: "blur(0.3vw)",
-        });
-      }
+       gsap.from(".button", {
+      y: -100,
+      opacity: 0,
+      filter: "blur(3px)",
+      delay: 1,
+      duration: 1,
+      ease: "myCubic",
+      scrollTrigger: {
+        trigger: ".footer_section",
+        start: "top 60%",
+        toggleActions: "play reverse play reverse",
+      },
     });
 
-    const subscribe = $(".subscribe_text_button");
-    const subscribed = $(".subscribed_text_button");
+    //Input effect...............................................................................................
+    jQuery(document).ready(function ($) {
+      const input_email = $(".input_email");
+      const email_button = $(".button");
+      const baseVW = isDesktop ? 15 : 34;
+      const perCharVW = 0.7;
+      const maxVW = isDesktop ? 23 : 56;
+      const thresholdChars = 16;
 
-    email_button.click(function () {
-      const email = input_email.val().trim();
-      const isValid = email.includes("@") && email.includes(".");
+      input_email.on("input", function () {
+        const email = input_email.val();
+        const charCount = email.length;
+        let newVW = baseVW;
 
-      if (isValid) {
+        if (charCount > thresholdChars) {
+          newVW += (charCount - thresholdChars) * perCharVW;
+        }
+        if (newVW > maxVW) newVW = maxVW;
+
+        input_email.css("width", `${newVW}vw`);
+        $(".massage_text").css("width", `${newVW}vw`);
+      });
+
+      const subscribe = $(".subscribe_text_button");
+      const subscribed = $(".subscribed_text_button");
+
+      //click
+      email_button.click(function (e) {
+        e.preventDefault();
+
+        const email = input_email.val().trim();
+        const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+
+        if (!isValid) {
+          input_email.addClass("wiggle");
+          $(".subscribe").css({
+            filter: "blur(0.3vw)",
+            transform: "translateY(-5vw)",
+            display: "none",
+          });
+
+          setTimeout(() => {
+            $(".correct_email").css({
+              display: "block",
+              filter: "blur(0vw)",
+              transform: "translateY(0vw)",
+            });
+          }, 100);
+
+          setTimeout(() => {
+            input_email.removeClass("wiggle");
+          }, 1500);
+          return;
+        }
+
+        // Анимации при валидном email
         subscribe.css({
-          filter: "blur(0.3vw)",
-          transform: isDesktop ? "translateY(5vw)" : "translateY(10vw)",
+          filter: "blur(0vw)",
+          transform: "translateY(10vw)",
         });
 
         subscribed.css({
           filter: "blur(0vw)",
           transform: "translateY(0vw)",
         });
-        input_email.val("");
-      }
+
+        $(".correct_email").css({
+          display: "none",
+          filter: "blur(0.3vw)",
+          transform: "translateY(-5vw)",
+        });
+
+        $(".subscribe").css({
+          filter: "blur(0.3vw)",
+          transform: "translateY(-5vw)",
+          display: "none",
+        });
+
+        $(".success_email").css({
+          display: "block",
+          filter: "blur(0vw)",
+          transform: "translateY(0vw)",
+        });
+
+        $.ajax({
+          url: mythemeData.ajax_url,
+          type: "POST",
+          data: {
+            action: "save_user_email",
+            email: email,
+            nonce: mythemeData.nonce,
+          },
+          success: function (response) {
+            if (response.success) {
+              input_email.val("");
+              $(".contact_input").append(
+                '<p style="color: green;">' + response.data.message + "</p>"
+              );
+            } else {
+              $(".contact_input").append(
+                '<p style="color: red;">' + response.data.message + "</p>"
+              );
+            }
+          },
+          error: function () {
+            $(".contact_input").append(
+              '<p style="color: red;">Ошибка сервера. Попробуйте позже.</p>'
+            );
+          },
+        });
+      });
     });
 
-return () => {
-  ScrollTrigger.getAll().forEach((st) => st.kill());
-  gsap.killTweensOf("*"); // Убивает все активные твины
-};
+    return () => {
+      ScrollTrigger.getAll().forEach((st) => st.kill());
+      gsap.killTweensOf("*"); // Убивает все активные твины
+    };
   }
 );
+
+
+
