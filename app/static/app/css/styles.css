@@ -1,10 +1,11 @@
 @font-face {
     font-family: 'Entropia';
-    src: url('./Entropia-Light.woff2') format('woff2'),
-        url('./Entropia-Light.woff') format('woff');
+    src: url('/static/app/fonts/Entropia-Light.woff2') format('woff2'),
+         url('/static/app/fonts/Entropia-Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
 
 * {
     margin: 0;
