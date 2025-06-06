@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Entropia';
-    src: url('/static/app/fonts/Entropia-Light.woff2') format('woff2'),
-         url('/static/app/fonts/Entropia-Light.woff') format('woff');
+    src: url('/static/app/fonts/entropia-light.woff2') format('woff2'),
+         url('/static/app/fonts/entropia-light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
