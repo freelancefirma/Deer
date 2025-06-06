@@ -779,7 +779,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start: "top 80%",
+        start:isDesktop ? "top 80%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -793,7 +793,7 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start: "top 70%",
+        start:isDesktop ? "top 70%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -807,7 +807,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start: "top 60%",
+        start:isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -822,7 +822,7 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start: "top 70%",
+        start:isDesktop ? "top 70%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -836,7 +836,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start: "top 60%",
+        start:isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -851,7 +851,7 @@ mm.add(
       ease: "superEase2",
       scrollTrigger: {
         trigger: ".footer_section",
-        start: "top 60%",
+        start:isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -865,7 +865,7 @@ mm.add(
       ease: "myCubic",
       scrollTrigger: {
         trigger: ".footer_section",
-        start: "top 60%",
+        start:isDesktop ? "top 60%" : "top 90%",
         toggleActions: "play reverse play reverse",
       },
     });
@@ -989,6 +989,3 @@ mm.add(
     };
   }
 );
-
-
-
