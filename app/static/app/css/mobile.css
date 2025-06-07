@@ -7,6 +7,7 @@
     }
 
 @media (max-width: 768px) {
+
     /* .............................................................................. */
     .decor_section {
         position: absolute;
@@ -103,9 +104,10 @@
     /* ........................................................................... */
     .about_section {
         display: grid;
-        background-color: rgba(233, 253, 175, 0);
+        background-color: rgba(233, 253, 175, 0.3);
         width: 100vw;
         height: 160vw;
+      
     }
 
     .about_wrapper {
@@ -122,7 +124,7 @@
         width: 20vw;
         height: 30vw;
         background-color: rgba(1, 247, 255, 0);
-        margin-top: 8vw;
+        margin-top: 4vw;
     }
 
     .deer_logo {
@@ -135,7 +137,7 @@
         width: 20vw;
         height: 8vw;
         justify-self: center;
-        background-color: #bc8f8f00;
+        background-color: hsla(0, 25%, 65%, 0);
         overflow: hidden;
         mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
         -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
@@ -151,12 +153,12 @@
     .about_frame_container {
         display: grid;
         position: absolute;
-        width: 65vw;
-        height: 50vw;
-        margin-top: 30vw;
+        width: 70vw;
+        height: 60vw;
+        margin-top: 38vw;
         justify-self: center;
         align-self: center;
-        background-color: #40e1f600;
+        background-color: hsla(187, 91%, 61%, 0);
         overflow: hidden;
         mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
         -webkit-mask-image: radial-gradient(ellipse at center, rgba(0, 0, 0, 1) 60%, rgba(0, 0, 0, 0) 100%);
@@ -166,8 +168,8 @@
 
     .about_description {
         position: absolute;
-        width: 56.2vw;
-        font-size: 4.5vw;
+        width: 59.2vw;
+        font-size: 5.6vw;
         text-align: center;
         justify-self: center;
         align-self: center;
@@ -210,11 +212,11 @@
 
     .about_deer {
         position: absolute;
-        width: 80vw;
-        margin-top: 92vw;
+        width: 60vw;
+        margin-top: 109vw;
         justify-self: center;
-        transform: translateY(10vw) scale(0.8);
-        opacity: 0.16;
+        transform: translateY(0vw) scale(1.2);
+        opacity: 1;
     }
 
 
@@ -292,9 +294,9 @@
     /* .............................................................................. */
     .footer_section {
         display: grid;
-        background-color: rgba(0, 255, 255, 0);
+        background-color: rgba(0, 255, 255, 0.3);
         width: 100vw;
-        height: 130vw;
+        height: 140vw;
     }
 
     .contact_wrapper {
@@ -345,10 +347,10 @@
     }
 
     .contact_description {
-        width: 56vw;
+        width: 70vw;
         height: 26vw;
-        margin-top: 10vw;
-        font-size: 4.5vw;
+        margin-top: 7vw;
+        font-size: 5.6vw;
         text-align: center;
         justify-self: center;
         border-radius: 1vw;
@@ -358,37 +360,27 @@
     }
 
     .contact_form_wrapper {
-        width: 56.5vw;
+        width: 80vw;
         transform: translateY(-3vw);
         justify-self: center;
-        background-color: rgba(0, 255, 255, 0);
+        background-color: rgba(0, 255, 255, 0.3);
     }
 
     .massage_wrapper {
         display: grid;
         gap: 1vw;
-        height: 28vw;
+        height: 36vw;
         overflow: hidden;
-        background-color: hsla(14, 72%, 70%, 0);
+        background-color: hsla(14, 72%, 70%, 0.2);
         transform: translateY(2.8vw);
     }
 
     .send_massage {
-        font-size: 3.56vw;
+        font-size: 4.56vw;
         justify-self: center;
         color: #006d77a0;
         transform: translateY(0vw);
     }
-
-    /* .massage_input {
-        width: auto;
-        height: aito;
-        font-size: 2vw;
-        justify-self: center;
-        border-radius: 2vw;
-        background-color: hsla(14, 72%, 70%, 0.6);
-        perspective: 6vw;
-    } */
 
     .massage_text {
         all: unset;
@@ -396,9 +388,9 @@
         overflow-wrap: break-word;
         word-break: break-word;
         box-sizing: border-box;
-        width: 34vw;
-        height: 22.5vw;
-        font-size: 3.5vw;
+        width: 80vw;
+        height: 28vw;
+        font-size:4.5vw;
         font-family: 'Entropia', sans-serif;
         color: #006d77a0;
         text-align: left;
@@ -416,44 +408,44 @@
 
     .subscribe_wrapper {
         display: grid;
-        height: 13vw;
+        height: 20vw;
         overflow: hidden;
-        background-color: #e9947a00;
+        background-color: hsla(14, 72%, 70%, 0.5);
         transform: translateY(2.8vw);
     }
 
     .subscribe {
-        font-size: 3.56vw;
+        font-size: 4.56vw;
         justify-self: center;
         color: #006d77a0;
     }
 
-    .correct_email {
-        display: none;
-        font-size: 3.56vw;
-        justify-self: center;
-        color: #e97a7a;
-        filter: blur(0.3vw);
-        transform: translateY(-5vw);
-        transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1), filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
+    .correct_email{
+    display: none;
+    font-size: 4.56vw;
+    justify-self: center;
+    color: #e97a7a;
+    filter: blur(0.3vw);
+    transform: translateY(-5vw);
+    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
-    .success_email {
-        display: none;
-        font-size: 3.56vw;
-        justify-self: center;
-        color: #006d77a0;
-        filter: blur(0.3vw);
-        transform: translateY(-5vw);
-        transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1), filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-    }
+.success_email{
+    display: none;
+    font-size: 4.56vw;
+    justify-self: center;
+    color: #006d77a0;
+    filter: blur(0.3vw);
+    transform: translateY(-5vw);
+    transition: transform 0.7s cubic-bezier(0.075, 0.82, 0.165, 1),filter 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 
     .contact_input {
         display: grid;
         place-content: center;
         width: auto;
-        height: 7vw;
-        border-radius: 4vw;
+        height: 10vw;
+        border-radius: 8vw;
         border: #006d7734 solid 0.2vw;
         background-color: #83c5bf5a;
         justify-self: center;
@@ -462,8 +454,8 @@
     }
 
     .contact_input input {
-        width: 34vw;
-        height: 7vw;
+        width: 43.9vw;
+        height: 10vw;
         font-family: 'Entropia', sans-serif;
         color: #006d77a0;
         padding-left: 2vw;
@@ -481,21 +473,21 @@
 
     .button_wrapper {
         display: grid;
-        width: 22vw;
-        height: 10vw;
+        width: 30vw;
+        height: 14vw;
         justify-self: center;
         place-items: center;
-        border-radius: 6vw;
+        border-radius: 8vw;
         overflow: hidden;
         transform: scale(0.7) translateY(2vw);
-        background-color: hsla(14, 72%, 70%, 0)
+        background-color: hsla(14, 72%, 70%, 0.5)
     }
 
     .button {
         display: grid;
-        width: 22vw;
-        height: 10vw;
-        font-size: 6.5vw;
+        width: 30vw;
+        height: 14vw;
+        font-size: 8.5vw;
         border-radius: 2vw;
         place-items: center;
         color: #E2F0F2;

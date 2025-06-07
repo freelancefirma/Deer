@@ -92,7 +92,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CMS_TEMPLATES = [
     ('base.html', 'Base Template'),
     ('app/index.html', 'App index template'),
-    ('slider/slider.html', 'Slider Template'),
 ]
 CMS_CONFIRM_VERSION4 = True
 CMS_PERMISSION = False
